@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Status Update</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Delivery Status Update</h1>
+        <input type="text" id="bookingIdInput" placeholder="Enter Booking ID">
+        <div class="status-options" id="statusOptions">
+            <div class="status-pair">
+                <button class="status-btn" onclick="updateStatus('Picked up')">Picked up</button>
+                <button class="status-btn" onclick="updateStatus('In Transit')">In Transit</button>
+            </div>
+            <div class="status-pair">
+                <button class="status-btn" onclick="updateStatus('Delivered')">Delivered</button>
+                <button class="status-btn" onclick="updateStatus('Returned')">Returned</button>
+            </div>
+        </div>
+        <div id="statusMessage" class="hidden"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

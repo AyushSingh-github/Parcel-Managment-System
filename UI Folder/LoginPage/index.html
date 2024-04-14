@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="page-container">
+    <div class="container">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="userId">User ID:</label>
+          <input type="text" id="userId" name="userId" minlength="5" maxlength="20" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" maxlength="30" required>
+        </div>
+        <div class="form-group">
+          <button type="submit" id="login">Login</button>
+        </div>
+      </form>
+      <p id="errorMessage" class="error-message"></p>
+      <p>Don't have an account? <a href="../RegistrationPage/index.html">Sign up</a></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

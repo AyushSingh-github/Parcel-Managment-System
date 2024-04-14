@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center horizontally */
+    background-color: lightgreen; /* Blue color */
+    color: red; /* White text color */
+    padding: 10px; /* Add padding */
+    border-radius: 20px; /* Rounded corners */
+    width: 85%; /* Set width to 100% */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+
+.user-info p {
+    margin: 0px;
+}
+
+button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#logoutBtn:hover {
+    background-color:red; /* Darken color on hover */
+}
+
+main {
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.payment-info {
+    margin-bottom: 10px;
+}
+
+.payment-info label {
+    margin-right: 10px;
+}
+
+.button-container {
+    text-align: left;
+}
+
+.action-btn {
+    margin-right: 20px;
+}

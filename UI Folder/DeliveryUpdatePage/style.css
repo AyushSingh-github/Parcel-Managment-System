@@ -1,0 +1,55 @@
+body {
+    border: 2px solid black; /* Border */
+    margin: 30px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+.container {
+    text-align: center;
+}
+.container h1{
+    border: 1px dotted red;
+    border-radius: 10px;
+    color: red;
+}
+
+.status-options {
+    margin-top: 20px;
+}
+
+.status-pair {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px; /* Add margin between pairs */
+}
+
+.status-btn {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.status-btn:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    display: none;
+}
+
+#statusMessage {
+    background-color: lightgreen; /* Green box */
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px; /* Add margin from status options */
+}

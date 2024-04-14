@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0; /* Background color */
+}
+
+.container {
+    text-align: center;
+    background-color: #fff; /* Container background color */
+    padding: 20px;
+    border: 2px solid #ccc; /* Border */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow */
+    max-width: 400px;
+    width: 100%;
+}
+
+.search-container {
+    margin-top: 20px;
+    margin-bottom: 20px; /* Add margin below the search container */
+}
+
+input[type="text"] {
+    width: calc(100% - 22px); /* Adjusted width to accommodate borders */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    width: calc(100% - 22px); /* Adjusted width to accommodate borders */
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff; /* Submit button background color */
+    color: #fff; /* Submit button text color */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Hover color */
+}
+
+#packageStatus {
+    margin-top: 20px;
+    text-align: center;
+    border: 1px solid #ccc; /* Border for status container */
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #f9f9f9; /* Status container background color */
+}

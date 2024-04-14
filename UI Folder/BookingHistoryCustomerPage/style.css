@@ -1,0 +1,62 @@
+body {
+    border: 2px solid black;
+    margin: 20px;
+    padding: 2px;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.table th,
+.table td {
+    margin: auto;
+    padding: auto;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    vertical-align: middle;
+}
+
+
+.container {
+    width: 95%;
+}
+
+.welcome {
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.button-container button {
+    margin-left: 90px;/* Add some space between the welcome text and logout button */
+}
+
+.booking-history {
+    justify-content: center;
+    border: 2px solid black; /* Border styling */
+    padding: 20px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    background-color: #007bff; /* Blue color for buttons */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #002ab3; /* Darker blue on hover */
+}

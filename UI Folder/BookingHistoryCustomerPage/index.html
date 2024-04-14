@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Booking History</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="welcome">
+            <h1>Welcome <span id="username">Customer</span></h1>
+            <div class="button-container">
+                <button id="logoutBtn">Logout</button>
+            </div>
+        </div>
+        
+        <div class="booking-history">
+            <h2>Booking History</h2>
+            <div class="table">
+                <!-- Table for displaying booking details -->
+                <table id="bookingTable">
+                    <thead>
+                        <tr>
+                            <th>Customer ID</th>
+                            <th>Booking ID</th>
+                            <th>Booking Date</th>
+                            <th>Receiver Name</th>
+                            <th>Delivered Address</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>C123</td>
+                            <td>B123</td>
+                            <td>2024-04-10</td>
+                            <td>Ayush Singh</td>
+                            <td>123, Mumbai, India</td>
+                            <td><div class="amount">$75.00</div></td>
+                            <td><div class="status">Delivered</div></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+            <div class="pagination">
+                <button id="prevBtn">Previous</button>
+                <button id="nextBtn">Next</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

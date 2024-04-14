@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="user-info">
+                <p>Welcome ! <span id="username">Ayush</span></p>
+            </div>
+            <button id="logoutBtn">Logout</button>
+        </header>
+        <main>
+            <h2>Payment Details</h2>
+            <div id="billAmount" class="payment-info">Bill Amount: $1000</div>
+            <div id="modeOfPayment" class="payment-info">
+                <label for="paymentMethod">Mode of Payment:</label>
+                <select id="paymentMethod">
+                    <option value="credit">Credit</option>
+                    <option value="debit">Debit</option>
+                </select>
+            </div>
+            <div class="button-container">
+                <button id="payNowBtn" class="action-btn">Pay Now</button>
+                <button id="backToHomeBtn" class="action-btn">Back to Home</button>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

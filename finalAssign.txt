@@ -1,0 +1,416 @@
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+import java.util.*;
+class CustomerInfo{
+    public String customerName;
+    public String email;
+    public String mobile;
+    public String address;
+    public int userId;
+    public String password;
+    public String confirmPassword;
+    public String role;
+	
+    public CustomerInfo(String customerName, String email, String mobile, String address, int userId, String password, String confirmPassword, String role){
+        this.customerName = customerName;
+        this.email = email;
+        this.mobile = mobile;
+        this.address = address;
+        this.userId = userId;
+        this.password = password;
+        this.confirmPassword = confirmPassword;
+        this.role = role;
+    }
+}
+
+class Booking{
+            public int bookingId;
+            public String recName;
+            public String recAdd;
+            public String recMob;
+            public String desc;
+            public String type;
+            public String pickUpTime;
+            public String dropOffTime;
+            public int userId;
+            public Booking(int bookingId, String recName, String recAdd, String recMob, String desc , String type , String pickUpTime, String dropOffTime, int userId){
+                this.bookingId = bookingId;
+                this.recName = recName;
+                this.recAdd = recAdd;
+                this.recMob = recMob;
+                this.desc = desc;
+                this.type = type;
+                this.pickUpTime = pickUpTime;
+                this.dropOffTime = dropOffTime;
+                this.userId = userId;
+            }  
+}
+            
+public class Main
+{
+    static ArrayList<CustomerInfo> arr = new ArrayList<>();
+    static ArrayList<Booking> list = new ArrayList<>();
+    static Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) {
+	   
+	    welcome();
+		
+	}
+	public static void welcome(){
+		System.out.println("Welcome to Parcel Management System");
+		System.out.println("1. User Registration ");
+		System.out.println("2. LogIn");
+		System.out.print("Please Enter your choice.........       ");
+		int n = sc.nextInt();
+		sc.nextLine();
+		
+		if(n==1){
+		    userRegistration();
+		}
+		else if(n==2){
+		    logIn();
+		}
+		else{
+		    System.out.println("You Entered Wrong Choice, Please Enter Right Choice.");
+		    welcome();
+		}
+	}
+	public static void userRegistration(){
+	    System.out.println("you chooce userRegistration");
+	    
+	    System.out.println("******* Please enter below input fields for Registration ********** ");
+	    System.out.print("customerName  :  ");
+	    String customerName = sc.nextLine();
+	    if(customerName.length()>50){
+	        System.out.println("Please provide valid customerName ,its too long.");
+	    }
+	    System.out.print("email  :  ");
+	    String email = sc.nextLine();
+	    
+	    boolean isEmailValid =   emailValidation(email);
+	    if(!isEmailValid){
+	        System.out.println("Invalid mail, its already present, enter another email");
+	    }
+	    System.out.print("mobile  :  ");
+	    String mobile = sc.nextLine();
+	    
+	    boolean isMobileValid = mobileValidation(mobile);
+	    if(!isMobileValid){
+	        System.out.println("Invalid mobile number.");
+	    }
+	    
+	    System.out.print("address  :  ");
+	    String address = sc.nextLine();
+	    
+	    System.out.print("userId  :  ");
+	    int userId  = sc.nextInt();
+	    sc.nextLine();
+	    
+	    boolean isUserIdValid = userIdValidation(userId);
+	    
+	    System.out.print("password  :  ");
+	    String password = sc.nextLine();
+	    
+	    System.out.print("confirmPassword  :  ");
+	    String confirmPassword = sc.nextLine();
+	    
+	    boolean isPasswordValid = passwordValidation(password,confirmPassword);
+	    
+	    System.out.print("role  :  ");
+	    String role = sc.nextLine();
+	    
+	    CustomerInfo customer = new CustomerInfo(customerName,email,mobile,address,userId,password,confirmPassword,role);
+	    
+	    arr.add(customer);
+
+		System.out.println("Registration successfully");
+		logIn();
+	    
+	}
+	public static boolean emailValidation(String email){
+	   // System.out.println("email validation");
+	    for(CustomerInfo c : arr){
+	        if(c.email.equalsIgnoreCase(email)) return false;
+	    }
+	    return true;
+	}
+	public static boolean mobileValidation(String mobile){
+	   // System.out.println("mobile validation");
+	    for(CustomerInfo c : arr){
+	        if(c.mobile.equalsIgnoreCase(mobile)) return false;
+	    }
+	    return true;
+	}
+	public static boolean userIdValidation(int userId){
+	   // System.out.println("userId validation");
+	    for(CustomerInfo c : arr){
+	        if(c.userId==userId) return false;
+	    }
+	    return true;
+	}
+	public static boolean passwordValidation(String password, String confirmPassword){
+	   // System.out.println("passwordValidation");
+	    if(password == confirmPassword) return true;
+	    else return false;
+	}
+	
+	static int userId;
+	public static void logIn(){
+	    System.out.println("Welcome to logIn Page");
+	    System.out.println("******* Please enter below input fields for LogIn ********** ");
+	    System.out.print("Enter your User_id   :   ");
+	    userId = sc.nextInt(); sc.nextLine();
+	    
+	    System.out.print("Enter your Password   :   ");
+	    String password = sc.nextLine();
+	    
+	    boolean isUserValidate = userValidation(userId,password);
+	    if (isUserValidate){
+	        System.out.println("User logged in successfully");
+	        System.out.println(" *******************************  ");
+			selectYourRole();   
+	    }
+	    else {
+			System.out.println("bad authentication");
+		    logIn();
+		}
+	    
+	}
+	public static void selectYourRole(){
+		System.out.println("Please select your role.......");
+	        System.out.println("1.  Customer     ");
+	        System.out.println("2.  Officer      ");
+	        System.out.print("Enter your choice.........");
+	        int n = sc.nextInt(); sc.nextLine();
+	        if(n==1){
+	            System.out.print("Enter your role id :   ");
+	            int id = sc.nextInt();
+	            sc.nextLine();
+	            if(id==100)    customerMenu();
+			else {
+			    System.out.println("You are not authenticated for customer role.");
+			    selectYourRole();
+				}
+	           
+	        }
+	        else if (n==2){
+	            System.out.print("Enter your role id :   ");
+	            int id = sc.nextInt();
+	            sc.nextLine();
+	            if(id==200)    officerMenu();
+	            else{
+	            System.out.println("You are not authenticated for officer role.");
+				selectYourRole();
+				}
+	            
+	        }
+	        else{
+	            System.out.println("Wrong choice, Please select your role");
+				selectYourRole();
+	        }
+	}
+	public static boolean userValidation(int userId, String password){
+	    for(CustomerInfo c : arr){
+	        if(c.userId == userId && c.password.equalsIgnoreCase(password)) return true;
+	    }
+	    return false;
+	}
+	public static void customerMenu(){
+	    System.out.println("  *****   Welcome to customer dashboard menu   *****  ");
+	    System.out.println("1.  Home ");
+	    System.out.println("2.  Booking Services ");
+	    System.out.println("3.  Tracking ");
+	    System.out.println("4.  Previous Booking ");
+	    System.out.println("5.  Contact Support ");
+	    System.out.println("6.  Logout ");
+	    System.out.print("Enter your choice.............");
+	    int n = sc.nextInt(); sc.nextLine();
+	    if(n==1){
+	        customerMenu();
+	    }
+	    else if(n==2){
+	        bookingServiceMenuAsCustomer();
+	    }
+	    else if(n==3){
+	        trackingCustomer();
+	    }
+	    else if(n==4){
+	        previousBookingCustomer();
+	    }
+	    else if(n==5){
+	        contactSupport();
+	    }
+	    else if(n==6){
+	        logIn();
+	    }
+	    else{
+	        System.out.println("Wrong choice. Please select right choice.");
+	        customerMenu();
+	    }
+	    
+	}
+	public static void bookingServiceMenuAsCustomer(){
+		System.out.println("  *****   Welcome to booking service menu   *****  ");
+		for(CustomerInfo cust : arr){
+			if(cust.userId==userId) {
+				System.out.println(cust.customerName);
+				System.out.println(cust.address);
+				System.out.println(cust.mobile);
+			}
+		}
+		System.out.println("Please Enter some details............ ");
+        System.out.print("1.  Reciever Name:    ");
+		String recName = sc.nextLine();
+        System.out.print("2.  Reciever Address:    ");
+		String recAdd = sc.nextLine();
+        System.out.print("3.  Reciever Mobile: ");
+		String recMob = sc.nextLine();
+        System.out.print("4.  Parcel Content Description:    ");
+		String desc = sc.nextLine();
+        System.out.print("5.  Parcel Delivery Type:    ");
+		String type = sc.nextLine();
+        System.out.print("6.  Parcel PickUp Time:    ");
+		String pickUpTime = sc.nextLine();
+		System.out.print(".7  Parcel DropOff Time:    ");
+		String dropOffTime = sc.nextLine();
+        System.out.print("Parcel service cost is :  Rs 50 ");
+
+
+        // code for generating booking id -------------
+
+		Random rand = new Random();
+        int bookingId = rand.nextInt(1000000000);
+        
+        
+        System.out.println("Booking Id is :  "+ bookingId);
+        System.out.println("Reciever name is : " + recName);
+        System.out.println("Reciever address is : "+recAdd);
+        System.out.println("Reciever contect number is : "+recMob);
+        System.out.println("Parcel content description is : "+desc);
+        System.out.println("Parcer type is : "+type);
+        System.out.println("Parcel PickUp time is : "+pickUpTime);
+        System.out.println("Parcle DropOff time is : "+dropOffTime);
+        System.out.println("User id is : "+userId);
+        // ------------------
+        Booking b = new Booking(bookingId, recName, recAdd, recMob, desc, type, pickUpTime, dropOffTime, userId);
+        list.add(b);
+	}
+	
+	public static void trackingCustomer(){
+	    System.out.print("Entr your booking id :  ");
+	    int bookingId = sc.nextInt(); sc.nextLine();
+	    for(Booking b : list){
+	        if(b.bookingId == bookingId){
+	            System.out.println("Booking Id is :  "+ b.bookingId);
+        System.out.println("Reciever name is : " + b.recName);
+        System.out.println("Reciever address is : "+b.recAdd);
+        System.out.println("Reciever contect number is : "+b.recMob);
+        System.out.println("Parcel content description is : "+b.desc);
+        System.out.println("Parcer type is : "+b.type);
+        System.out.println("Parcel PickUp time is : "+b.pickUpTime);
+        System.out.println("Parcle DropOff time is : "+b.dropOffTime);
+        System.out.println("User id is : "+b.userId);
+	        }
+	    }
+	}
+	
+	public static void previousBookingCustomer(){
+	    
+	}
+	
+	public static void contactSupport(){
+	    
+	}
+	public static void officerMenu(){
+	     System.out.println("  *****   Welcome to Officer dashboard menu   *****  ");
+	    System.out.println("1.  Home ");
+		System.out.println("2.  Booking Services");
+	    System.out.println("3.  Pickup Scheduling ");
+	    System.out.println("4.  Tracking ");
+	    System.out.println("5.  Previous Booking ");
+	    System.out.println("6.  Delivery Status ");
+	    System.out.println("7.  Logout ");
+	    System.out.print("Enter your choice.............");
+	    int n = sc.nextInt(); sc.nextLine();
+	    if(n==1){
+	        officerMenu();
+	    }
+	    else if(n==2){
+	        bookingServiceMenuAsOfficer();
+	    }
+	    else if(n==3){
+	        pickUpScheduling();
+	    }
+	    else if(n==4){
+	      trackingOfficer();  
+	    }
+	    else if(n==5){
+	        previousBookingOfficer();
+	    }
+	    else if(n==6){
+	        deliveryStatus();
+	    }
+	    else if(n==7){
+	        logIn();
+	    }
+	    else{
+	        System.out.println("Wrong choice. Please select right choice.");
+	        officerMenu();
+	    }
+	}
+	
+	public static void pickUpScheduling(){
+	    
+	}
+	public static void trackingOfficer(){
+	    
+	}
+	
+	public static void previousBookingOfficer(){
+	    
+	}
+	public static void deliveryStatus(){
+	    
+	}
+	public static void bookingServiceMenuAsOfficer(){
+		System.out.println("Please Enter some details............ ");
+        System.out.print("1.  Reciever Name:    ");
+		String recName = sc.nextLine();
+        System.out.print("2.  Reciever Address:    ");
+		String recAdd = sc.nextLine();
+        System.out.print("3.  Reciever Mobile: ");
+		String recMob = sc.nextLine();
+        System.out.print("4.  Parcel Content Description:    ");
+		String desc = sc.nextLine();
+        System.out.print("5.  Parcel Delivery Type:    ");
+		String type = sc.nextLine();
+        System.out.print("6.  Parcel PickUp Time:    ");
+		String pickUpTime = sc.nextLine();
+		System.out.print(".7  Parcel DropOff Time:    ");
+		String dropOffTime = sc.nextLine();
+        System.out.print("Parcel service cost is :  Rs 50 ");
+
+
+        // code for generating booking id -------------
+
+		Random rand = new Random();
+        int bookingId = rand.nextInt(1000000000);
+        
+        
+        System.out.println("Booking Id is :  "+ bookingId);
+        System.out.println("Reciever name is : " + recName);
+        System.out.println("Reciever address is : "+recAdd);
+        System.out.println("Reciever contect number is : "+recMob);
+        System.out.println("Parcel content description is : "+desc);
+        System.out.println("Parcer type is : "+type);
+        System.out.println("Parcel PickUp time is : "+pickUpTime);
+        System.out.println("Parcle DropOff time is : "+dropOffTime);
+        System.out.println("User id is : "+userId);
+	}
+}

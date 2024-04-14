@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Officer Booking History</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Welcome <span id="username">Officer</span></h1>
+            <button id="logoutBtn">Logout</button>
+        </div>
+        <div class="content">
+            <h2>Booking History</h2>
+            <div class="search">
+                <input type="text" id="customerID" placeholder="Enter Customer ID">
+                <input type="date" id="startDate">
+                <button id="searchBtn">Search</button>
+            </div>
+            <div class="table">
+                <!-- Table for displaying booking details -->
+                <table id="bookingTable">
+                    <thead>
+                        <tr>
+                            <th>Customer ID</th>
+                            <th>Booking ID</th>
+                            <th>Booking Date</th>
+                            <th>Receiver Name</th>
+                            <th>Delivered Address</th>
+                            <th>Amount Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Booking details will be dynamically inserted here -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="pagination">
+                <button id="prevBtn">Previous</button>
+                <button id="nextBtn">Next</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
